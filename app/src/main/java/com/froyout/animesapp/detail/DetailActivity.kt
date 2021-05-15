@@ -28,6 +28,8 @@ class DetailActivity : AppCompatActivity() {
 
         val idAnime = intent.getStringExtra(EXTRA_DATA)
 
+        Log.d("TAG", "onCreate: $idAnime")
+
         if (idAnime != null) {
             detailViewModel.getDetailAnime(idAnime).observe(this, { anime ->
                 when(anime){

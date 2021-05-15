@@ -1,5 +1,6 @@
 package com.froyout.animesapp.core.data.source
 
+import android.util.Log
 import com.froyout.animesapp.core.data.Resource
 import com.froyout.animesapp.core.data.source.remote.network.ApiResponse
 import com.froyout.animesapp.core.utils.AppExecutor
@@ -8,7 +9,6 @@ import kotlinx.coroutines.flow.*
 abstract class NetworkBoundResource<ResultType, RequestType>(private val executors: AppExecutor) {
 
     private var result: Flow<Resource<ResultType>> = flow{
-
         emit(Resource.Loading())
         val dbSource = loadFromDB().first()
         if(shouldFetch(dbSource)) {
@@ -36,7 +36,7 @@ abstract class NetworkBoundResource<ResultType, RequestType>(private val executo
 
     protected abstract fun loadFromDB(): Flow<ResultType>
 
-    protected abstract fun shouldFetch(data: ResultType?): Boolean
+    protected abstract fun shouldFetch(data: ResultType): Boolean
 
     protected abstract suspend fun createCall(): Flow<ApiResponse<RequestType>>
 

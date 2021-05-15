@@ -53,12 +53,12 @@ object DataMapper {
 
     fun mapEntityToDomain(it: AnimeEntity?): Anime =
         Anime(
-            id = it?.id.toString(),
-            rank = it?.rank.toString(),
-            title = it?.title.toString(),
-            url = it?.url.toString(),
-            imageUrl = it?.imageUrl.toString(),
-            type = it?.type.toString(),
+            id = it?.id ?: "",
+            rank = it?.rank ?: "",
+            title = it?.title ?: "",
+            url = it?.url ?: "",
+            imageUrl = it?.imageUrl ?: "",
+            type = it?.type ?: "",
             score = it?.score ?: 0.0,
             synopsis = it?.synopsis,
             premiered = it?.premiered,

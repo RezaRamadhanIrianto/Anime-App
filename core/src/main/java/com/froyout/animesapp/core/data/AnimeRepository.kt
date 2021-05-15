@@ -1,6 +1,7 @@
 package com.froyout.animesapp.core.data
 
 import android.net.Network
+import android.util.Log
 import com.froyout.animesapp.core.data.source.NetworkBoundResource
 import com.froyout.animesapp.core.data.source.local.LocalDataSource
 import com.froyout.animesapp.core.data.source.remote.RemoteDataSource
@@ -49,11 +50,12 @@ class AnimeRepository(
                 return localDataSource.getDetailAnime(id).map { DataMapper.mapEntityToDomain(it) }
             }
 
-            override fun shouldFetch(data: Anime?): Boolean {
-                return data != null
+            override fun shouldFetch(data: Anime): Boolean {
+                return data.id == ""
             }
 
             override suspend fun createCall(): Flow<ApiResponse<AnimeResponse>> {
+                Log.d("TAG", "createCall: $id")
                 return remoteDataSource.getDetailAnime(id)
             }
 

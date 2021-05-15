@@ -1,6 +1,7 @@
 package com.froyout.animesapp.detail
 
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
@@ -10,6 +11,7 @@ import com.froyout.animesapp.core.domain.usecase.AnimeUseCase
 
 class DetailViewModel(private val animeUseCase: AnimeUseCase) : ViewModel(){
     fun getDetailAnime(id: String): LiveData<Resource<Anime>>{
+        Log.d("TAG", "DetailViewModel: $id")
         val anime =  animeUseCase.getDetailAnime(id).asLiveData()
         return anime
     }
