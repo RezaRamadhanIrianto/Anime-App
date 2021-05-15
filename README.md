@@ -15,7 +15,8 @@ Animes API (Jikan) - https://jikan.moe/
 - Reactive Programming: [Kotlin Coroutine](https://developer.android.com/kotlin/coroutines)
 - Dependency Injection: [Koin](https://insert-koin.io/)
 - Network: [Retrofit](https://square.github.io/retrofit/)
-- 
+- Local Database: [Room](https://developer.android.com/jetpack/androidx/releases/room)
+
 ### Features
 - List Top Anime
 - Detail Anime
