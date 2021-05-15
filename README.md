@@ -8,7 +8,7 @@ Animes App
   </a>
 </p>
 
-Movies API Rawg.io - https://www.themoviedb.org/
+Animes API (Jikan) - https://jikan.moe/
 
 ### Technical Specs
 - Language: [Kotlin](https://kotlinlang.org/)
