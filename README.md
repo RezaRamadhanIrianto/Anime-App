@@ -11,11 +11,11 @@ Animes App
 Animes API (Jikan) - https://jikan.moe/
 
 ### Technical Specs
-- Language: [Kotlin](https://kotlinlang.org/)
-- Reactive Programming: [Kotlin Coroutine](https://developer.android.com/kotlin/coroutines)
-- Dependency Injection: [Koin](https://insert-koin.io/)
-- Network: [Retrofit](https://square.github.io/retrofit/)
-- Local Database: [Room](https://developer.android.com/jetpack/androidx/releases/room)
+- Language              : [Kotlin](https://kotlinlang.org/)
+- Reactive Programming  : [Kotlin Coroutine](https://developer.android.com/kotlin/coroutines)
+- Dependency Injection  : [Koin](https://insert-koin.io/)
+- Network               : [Retrofit](https://square.github.io/retrofit/)
+- Local Database        : [Room](https://developer.android.com/jetpack/androidx/releases/room)
 
 ### Features
 - List Top Anime
