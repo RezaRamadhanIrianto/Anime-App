@@ -1,0 +1,3 @@
+rootProject.name = "AnimesApp"
+include ':app'
+include ':core'
