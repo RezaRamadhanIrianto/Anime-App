@@ -51,5 +51,10 @@ class HomeActivity : AppCompatActivity() {
             setHasFixedSize(true)
             adapter = animeAdapter
         }
+
+        binding.btnFavorite.setOnClickListener {
+            val intent = Intent(this, Class.forName("com.froyout.animesapp.favorite.FavoriteActivity"))
+            startActivity(intent)
+        }
     }
 }

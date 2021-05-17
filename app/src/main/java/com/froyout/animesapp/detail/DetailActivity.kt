@@ -10,6 +10,9 @@ import com.froyout.animesapp.R
 import com.froyout.animesapp.core.data.Resource
 import com.froyout.animesapp.core.domain.models.Anime
 import com.froyout.animesapp.databinding.ActivityDetailBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
@@ -27,8 +30,6 @@ class DetailActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val idAnime = intent.getStringExtra(EXTRA_DATA)
-
-        Log.d("TAG", "onCreate: $idAnime")
 
         if (idAnime != null) {
             detailViewModel.getDetailAnime(idAnime).observe(this, { anime ->
@@ -52,14 +53,10 @@ class DetailActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             onBackPressed()
         }
-        binding.btnFavorite.setOnClickListener {
-            binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_fill))
-        }
     }
 
     fun populateAnime(anime: Anime?){
         if(anime != null){
-            Log.d("TAG", "populateAnime: ${anime.score}")
             binding.tvSynopsis.text = anime.synopsis
             binding.tvAired.text = anime.premiered
             binding.tvScore.text = anime.score.toString()
@@ -67,10 +64,29 @@ class DetailActivity : AppCompatActivity() {
             binding.tvTitle.text = anime.title
             binding.tvType.text = anime.type
 
+            var isFavorite = anime.isFavorite
+            setFavoriteAnime(isFavorite)
+
             Glide.with(this)
                 .load(anime.imageUrl)
                 .placeholder(R.drawable.loading)
                 .into(binding.imgDetail)
+
+            binding.btnFavorite.setOnClickListener {
+                isFavorite = !isFavorite
+                setFavoriteAnime(isFavorite)
+                CoroutineScope(Dispatchers.IO).launch {
+                    detailViewModel.setFavoriteAnime(anime, isFavorite)
+                }
+            }
+        }
+    }
+
+    fun setFavoriteAnime(state: Boolean){
+        if(state){
+            binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_fill))
+        }else{
+            binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_border))
         }
     }
 

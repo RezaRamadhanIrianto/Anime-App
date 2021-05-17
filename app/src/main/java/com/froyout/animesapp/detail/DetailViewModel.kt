@@ -11,8 +11,11 @@ import com.froyout.animesapp.core.domain.usecase.AnimeUseCase
 
 class DetailViewModel(private val animeUseCase: AnimeUseCase) : ViewModel(){
     fun getDetailAnime(id: String): LiveData<Resource<Anime>>{
-        Log.d("TAG", "DetailViewModel: $id")
         val anime =  animeUseCase.getDetailAnime(id).asLiveData()
         return anime
+    }
+
+    fun setFavoriteAnime(anime: Anime, state: Boolean){
+        animeUseCase.setFavoriteAnime(anime, state)
     }
 }

@@ -12,12 +12,17 @@ import com.froyout.animesapp.core.domain.models.Anime
 class AnimeHorizontalAdapter: RecyclerView.Adapter<AnimeHorizontalAdapter.AnimeViewHolder>() {
     var onItemClick: ((Anime) -> Unit)? = null
     private var listData = ArrayList<Anime>()
+    private var view = 1
 
     fun setData(newListData: List<Anime>?){
         if(newListData == null) return
         listData.clear()
         listData.addAll(newListData)
         notifyDataSetChanged()
+    }
+
+    fun setViewType(view: Int){
+        this.view = view
     }
 
     inner class AnimeViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
@@ -42,12 +47,27 @@ class AnimeHorizontalAdapter: RecyclerView.Adapter<AnimeHorizontalAdapter.AnimeV
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimeViewHolder {
-        return AnimeViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_anime_horizontal, parent, false))
+        if(this.view == 1) {
+            return AnimeViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.item_anime_horizontal, parent, false)
+            )
+        } else{
+            return AnimeViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_anime_vertical, parent, false))
+        }
     }
 
     override fun onBindViewHolder(holder: AnimeViewHolder, position: Int) {
         val data = listData[position]
         holder.bind(data)
+    }
+
+    override fun getItemViewType(position: Int): Int {
+        if(this.view == 1){
+            return 1
+        }else{
+            return 2
+        }
     }
 
     override fun getItemCount(): Int {

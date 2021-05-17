@@ -16,5 +16,6 @@ data class Anime (
     val synopsis: String?,
     val premiered: String?,
     val airing: Boolean?,
+    val isFavorite: Boolean = false
 
 ): Parcelable

@@ -33,7 +33,8 @@ object DataMapper {
               score = it.score,
               synopsis = it.synopsis,
               premiered = it.premiered,
-              airing = it.airing
+              airing = it.airing,
+                isFavorite = it.isFavorite
             )
         }
 
@@ -48,7 +49,9 @@ object DataMapper {
             score = it.score,
             synopsis = it.synopsis,
             premiered = it.premiered,
-            airing = it.airing
+            airing = it.airing,
+            isFavorite = it.isFavorite
+
         )
 
     fun mapEntityToDomain(it: AnimeEntity?): Anime =
@@ -60,9 +63,10 @@ object DataMapper {
             imageUrl = it?.imageUrl ?: "",
             type = it?.type ?: "",
             score = it?.score ?: 0.0,
-            synopsis = it?.synopsis,
-            premiered = it?.premiered,
-            airing = it?.airing
+            synopsis = it?.synopsis ?: "",
+            premiered = it?.premiered ?: "",
+            airing = it?.airing ?: false,
+            isFavorite = it?.isFavorite ?: false
         )
 
     fun mapResponseToEntity(it: AnimeResponse) : AnimeEntity =

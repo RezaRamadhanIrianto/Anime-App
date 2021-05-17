@@ -11,10 +11,10 @@
     <color name="colorPrimary">#00ff91</color>
     <color name="colorPrimaryDark">#00b567</color>
     <color name="colorAccent">#007844</color>
-    <color name="colorBackground">#757575</color>
+    <color name="colorBackground">#212121</color>
 
     <color name="textColorPrimary">#FFFFFF</color>
-    <color name="textColorGrey">#EEEEEE</color>
+    <color name="textColorGrey">#BDBDBD</color>
 
     <!-- red -->
     <color name="md_red_50">#FFEBEE</color>
