@@ -20,10 +20,11 @@ Animes API (Jikan) - https://jikan.moe/
 ### Features
 - List Top Anime
 - Detail Anime
+- Favorite List
 
 ### Future
-- Favorite List
 - List Anime by Season
+- Jetpack Paging 3
 
 ### ScreenShoots
 <img src="https://user-images.githubusercontent.com/46983732/118359377-4ebe5c00-b5ad-11eb-987c-0f454b23463f.jpeg" width="250" height= "500">&nbsp;&nbsp;&nbsp;&nbsp;
