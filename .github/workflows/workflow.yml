@@ -1,9 +1,6 @@
 name: Build & Publish Release APK
 
-on:
-  push:
-    tags:
-      - '*'
+on: [pull_request, push]
 
 jobs:
   Gradle:
