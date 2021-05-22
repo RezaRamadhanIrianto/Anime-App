@@ -1,10 +1,21 @@
-name: Build
-on: [pull_request, push]
+name: Build & Publish Release APK
+
+on:
+  push:
+    tags:
+      - '*'
+
 jobs:
-  build:
+  Gradle:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout the code
-        uses: actions/checkout@v2
-      - name: Build the app
-        run: ./gradlew build
+    - name: checkout code
+      uses: actions/checkout@v2
+    - name: setup jdk
+      uses: actions/setup-java@v1
+      with:
+        java-version: 11
+    - name: Make Gradle executable
+      run: chmod +x ./gradlew
+    - name: Build Release APK
+      run: ./gradlew assembleRelease
