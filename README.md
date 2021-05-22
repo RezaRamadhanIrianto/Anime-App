@@ -1,6 +1,6 @@
 <h1 align="center">
 <br/>
-Animes App
+Anime App
 </h1>
 <p align="center">
   <a href="https://github.com/RezaRamadhanIrianto/Animes-App/stargazers">
