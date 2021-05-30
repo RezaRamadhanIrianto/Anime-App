@@ -1,6 +1,5 @@
 package com.froyout.animesapp.core.data.source
 
-import android.util.Log
 import com.froyout.animesapp.core.data.Resource
 import com.froyout.animesapp.core.data.source.remote.network.ApiResponse
 import com.froyout.animesapp.core.utils.AppExecutor

@@ -1,6 +1,5 @@
 package com.froyout.animesapp.core.data
 
-import android.net.Network
 import android.util.Log
 import com.froyout.animesapp.core.data.source.NetworkBoundResource
 import com.froyout.animesapp.core.data.source.local.LocalDataSource
@@ -23,7 +22,7 @@ class AnimeRepository(
             when(val dataArray = remoteDataSource.getTopAnime().first()){
                 is ApiResponse.Success -> {
                     val listAnime = DataMapper.mapResponsesToDomain(dataArray.data)
-                    emit(Resource.Success<List<Anime>>(listAnime))
+                    emit(Resource.Success(listAnime))
                 }
                 is ApiResponse.Empty ->{
                     emit(Resource.Success<List<Anime>>(ArrayList<Anime>()))

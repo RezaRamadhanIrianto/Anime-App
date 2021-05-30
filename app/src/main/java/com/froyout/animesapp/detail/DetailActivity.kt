@@ -20,7 +20,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
 
     companion object{
-        val EXTRA_DATA = "anime_id"
+        const val EXTRA_DATA = "anime_id"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,7 +55,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    fun populateAnime(anime: Anime?){
+    private fun populateAnime(anime: Anime?){
         if(anime != null){
             binding.tvSynopsis.text = anime.synopsis
             binding.tvAired.text = anime.premiered
@@ -82,7 +82,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    fun setFavoriteAnime(state: Boolean){
+    private fun setFavoriteAnime(state: Boolean){
         if(state){
             binding.btnFavorite.setImageDrawable(ContextCompat.getDrawable(this, R.drawable.ic_favorite_fill))
         }else{

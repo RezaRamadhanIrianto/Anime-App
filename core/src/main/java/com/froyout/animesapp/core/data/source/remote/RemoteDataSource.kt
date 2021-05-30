@@ -32,8 +32,7 @@ class RemoteDataSource(private val apiService: ApiService) {
         return flow{
             try{
                 val response = apiService.getDetailAnime(id)
-                val dataArray = response
-                if(dataArray.id != ""){
+                if(response.id != ""){
                     emit(ApiResponse.Success(response))
                 }else{
                     emit(ApiResponse.Empty)

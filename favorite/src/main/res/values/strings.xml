@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">AnimesApp</string>
-    <string name="top_anime">Top Anime</string>
     <string name="title_favorite">Favorite</string>
     <string name="favorite">Favorite</string>
+    <string name="you_didnt_have_any_favorite_anime">You didn\'t have any favorite anime</string>
 </resources>

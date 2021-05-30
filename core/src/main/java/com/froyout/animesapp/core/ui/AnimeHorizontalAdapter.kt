@@ -47,13 +47,13 @@ class AnimeHorizontalAdapter: RecyclerView.Adapter<AnimeHorizontalAdapter.AnimeV
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AnimeViewHolder {
-        if(this.view == 1) {
-            return AnimeViewHolder(
+        return if(this.view == 1) {
+            AnimeViewHolder(
                 LayoutInflater.from(parent.context)
                     .inflate(R.layout.item_anime_horizontal, parent, false)
             )
         } else{
-            return AnimeViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_anime_vertical, parent, false))
+            AnimeViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_anime_vertical, parent, false))
         }
     }
 
@@ -63,10 +63,10 @@ class AnimeHorizontalAdapter: RecyclerView.Adapter<AnimeHorizontalAdapter.AnimeV
     }
 
     override fun getItemViewType(position: Int): Int {
-        if(this.view == 1){
-            return 1
+        return if(this.view == 1){
+            1
         }else{
-            return 2
+            2
         }
     }
 

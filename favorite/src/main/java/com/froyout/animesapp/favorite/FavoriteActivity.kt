@@ -3,10 +3,8 @@ package com.froyout.animesapp.favorite
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.froyout.animesapp.core.data.Resource
 import com.froyout.animesapp.core.ui.AnimeHorizontalAdapter
 import com.froyout.animesapp.detail.DetailActivity
 import com.froyout.animesapp.favorite.databinding.ActivityFavoriteBinding
@@ -38,8 +36,14 @@ class FavoriteActivity : AppCompatActivity() {
 
         }
 
-        favoriteViewModel.favoriteAnimes.observe(this, {
-            animes -> animeAdapter.setData(animes)
+        favoriteViewModel.getFavorite().observe(this, {
+            animes ->
+            animeAdapter.setData(animes)
+            if(animes.isNotEmpty()){
+                binding.tvEmpty.visibility = View.GONE
+            }else{
+                binding.tvEmpty.visibility = View.VISIBLE
+            }
         })
 
         with(binding.rvFavorite){
