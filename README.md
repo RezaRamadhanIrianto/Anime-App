@@ -16,6 +16,9 @@ Animes API (Jikan) - https://jikan.moe/
 - Dependency Injection  : [Koin](https://insert-koin.io/)
 - Network               : [Retrofit](https://square.github.io/retrofit/)
 - Local Database        : [Room](https://developer.android.com/jetpack/androidx/releases/room)
+- ViewBinding
+- MVVM
+- Modularization
 
 ### Features
 - List Top Anime
